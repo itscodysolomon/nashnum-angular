@@ -1,0 +1,23 @@
+<div class="key-display">
+  <mat-chip disabled>Key of {{questionKey[0]}}</mat-chip>
+</div>
+<h1 *ngIf="!isIndicatingAnswer" class="mat-display-4 background-primary" [@bounce]="!isIndicatingAnswer">
+  <span>
+    {{answerNumber}}
+  </span>
+</h1>
+<h1 *ngIf="isIndicatingAnswer && isAnswerCorrect" class="mat-display-4 answer-correct" [@right]="isAnswerCorrect">
+    <mat-icon class="toolbar-icon answer-icon">check</mat-icon>
+</h1>
+<h1 *ngIf="isIndicatingAnswer && !isAnswerCorrect" class="mat-display-4 answer-wrong" [@wrong]="!isAnswerCorrect">
+  <mat-icon *ngIf="!isAnswerCorrect" class="toolbar-icon answer-icon">close</mat-icon>
+</h1>
+<mat-divider></mat-divider>
+<mat-chip-list class="mat-chip-list-stacked">
+  <mat-chip
+    *ngFor="let choice of questionChoices"
+    (click)="checkAnswer(choice)"
+    [ngClass]="{'disable-choice': areChoicesDisabled}"
+  >{{choice}}</mat-chip>
+</mat-chip-list>
+

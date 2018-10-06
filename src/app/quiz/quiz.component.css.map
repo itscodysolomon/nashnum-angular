@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAS;EACP,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,IAAI;EACZ,aAAa,EAAE,eAAe;EAC9B,SAAS,EAAE,KAAK;EAChB,eAAe,EAAE,MAAM;;AAGzB,aAAc;EACZ,OAAO,EAAE,MAAM;;AAGjB,eAAgB;EACd,IAAI,EAAE,OAAO;;AAGf,WAAY;EACV,OAAO,EAAE,CAAC",
+"sources": ["quiz.component.scss"],
+"names": [],
+"file": "quiz.component.css"
+}

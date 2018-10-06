@@ -1,0 +1,10 @@
+<ng-container>
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <span>0 / 10</span>
+            <span class="toolbar-spacer"></span>
+            <button mat-button routerLink="/mode">Back</button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <app-question *ngIf="isQuestion" (newQuestion)="loadNewQuestion()" (answer)="pushAnswer($event)"></app-question>
+</ng-container>

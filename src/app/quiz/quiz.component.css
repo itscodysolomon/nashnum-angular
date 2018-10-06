@@ -1,0 +1,17 @@
+mat-chip {
+  font-size: 130%;
+  height: 40px;
+  margin-bottom: 15px !important;
+  max-width: 100px;
+  justify-content: center; }
+
+.toolbar-icon {
+  padding: 0 14px; }
+
+.toolbar-spacer {
+  flex: 11 auto; }
+
+mat-toolbar {
+  padding: 0; }
+
+/*# sourceMappingURL=quiz.component.css.map */

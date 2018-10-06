@@ -1,0 +1,53 @@
+mat-chip {
+  max-width: 75%;
+  font-size: 130%;
+  height: 40px;
+  margin-bottom: 15px !important;
+}
+
+/deep/ mat-chip-list.mat-chip-list-stacked.mat-chip-list div.mat-chip-list-wrapper {
+  margin: 0 auto;
+  margin-top: 40px;
+  align-items: center !important;
+}
+
+.mat-display-4{
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto 40px;
+  letter-spacing: 0;
+}
+
+.key-display{
+  margin-top: 30px;
+  text-align: center;
+  mat-chip{
+    width: 120px;
+    justify-content: center;
+  }
+}
+
+.disable-choice{
+  opacity: .5;
+  pointer-events: none;
+}
+
+.answer-wrong{
+  background: #ff4081;
+}
+
+.answer-correct{
+  background: #4caf50;
+}
+
+.answer-icon{
+  color: white;
+  font-size: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
