@@ -1,10 +1,11 @@
 <ng-container>
     <mat-toolbar>
         <mat-toolbar-row>
-            <span>0 / 10</span>
+            <span *ngIf="mode === 'quiz' && isQuestion && showQuestionCount">{{answers.length + 1}} / {{questionMax}}</span>
             <span class="toolbar-spacer"></span>
             <button mat-button routerLink="/mode">Back</button>
         </mat-toolbar-row>
     </mat-toolbar>
     <app-question *ngIf="isQuestion" (newQuestion)="loadNewQuestion()" (answer)="pushAnswer($event)"></app-question>
+    <app-score *ngIf="showScore" [quizScore]="quizScore"></app-score>
 </ng-container>

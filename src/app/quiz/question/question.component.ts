@@ -60,7 +60,6 @@ export class QuestionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      console.log('init ?');
     this.setAnswerChoices();
     this.setCorrectAnswer();
   }
@@ -98,7 +97,6 @@ export class QuestionComponent implements OnInit {
 
   checkAnswer(choice) {
     this.indicateAnswer(this.questionKey.indexOf(choice) + 1 === this.answerNumber);
-    this.answer.emit(this.questionKey.indexOf(choice) + 1 === this.answerNumber);
   }
 
   indicateAnswer(answer) {
@@ -106,10 +104,15 @@ export class QuestionComponent implements OnInit {
     this.isIndicatingAnswer = true;
     this.areChoicesDisabled = true;
     setTimeout(() => {
-      this.newQuestion.emit();
-      this.isIndicatingAnswer = false;
-      this.areChoicesDisabled = false;
+        this.nextQuestion(answer);
+        this.isIndicatingAnswer = false;
+        this.areChoicesDisabled = false;
     }, 1400);
+  }
+
+  nextQuestion(answer) {
+      this.answer.emit(answer);
+      this.newQuestion.emit();
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.scss']
 })
-export class CountdownComponent implements OnInit {
+export class CountdownComponent implements OnInit, OnDestroy {
 
   count = 3;
   initialPause = true;
@@ -21,7 +21,7 @@ export class CountdownComponent implements OnInit {
 
   countdown() {
     this.initialPause = false;
-    setInterval(() => {
+    window['countdownInterval'] = setInterval(() => {
       if( this.count > 1) {
         this.count -= 1;
       } else {
@@ -33,7 +33,11 @@ export class CountdownComponent implements OnInit {
   pauseForCountdown(){
     setTimeout(() => {
       this.countdown();
-    }, 600);
+    }, 300);
+  }
+
+  ngOnDestroy() {
+    window.clearInterval(window['countdownInterval']);
   }
 
 }

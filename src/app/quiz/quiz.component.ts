@@ -1,4 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ModeService} from '../shared/mode.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -6,18 +7,24 @@ import {Router} from '@angular/router';
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.scss']
 })
-export class QuizComponent implements OnInit, OnDestroy {
+export class QuizComponent implements OnInit {
 
   answers = [];
   isQuestion = true;
+  mode: string;
+  questionMax = 2;
+  showQuestionCount = true;
+  showScore = false;
+  quizScore: number;
 
   constructor(
+      private modeService: ModeService,
       private router: Router
   ) {
   }
 
   ngOnInit() {
-
+    this.mode = this.modeService.mode;
   }
 
   pushAnswer(answer) {
@@ -25,15 +32,30 @@ export class QuizComponent implements OnInit, OnDestroy {
   }
 
   loadNewQuestion() {
-    console.log('loading question');
-    this.isQuestion = false;
-    setTimeout(() => {
-      this.isQuestion = true;
-    }, 400);
+    this.isQuizDone();
+    if (!this.showScore) {
+      this.isQuestion = false;
+      setTimeout(() => {
+        this.isQuestion = true;
+      }, 400);
+    }
   }
 
-  ngOnDestroy() {
-    console.log(this);
+  isQuizDone() {
+    if (this.answers.length === this.questionMax && this.mode === 'quiz') {
+      this.loadQuizScore();
+    }
+  }
+
+  loadQuizScore() {
+    this.isQuestion = false;
+    this.showScore = true;
+    this.quizScore = this.getQuizScore();
+  }
+
+  getQuizScore() {
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    return Math.floor((this.answers.reduce(reducer) / this.questionMax) * 100);
   }
 
 }

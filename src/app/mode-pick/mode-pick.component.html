@@ -1,4 +1,4 @@
 <mat-chip-list class="mat-chip-list-stacked">
-  <mat-chip color="primary" selected routerLink="/countdown">Practice</mat-chip>
-  <mat-chip color="accent" selected routerLink="/countdown">Quiz</mat-chip>
+  <mat-chip color="primary" selected routerLink="/quiz" (click)="setMode('practice')">Practice</mat-chip>
+  <mat-chip color="accent" selected routerLink="/countdown" (click)="setMode('quiz')">Quiz</mat-chip>
 </mat-chip-list>

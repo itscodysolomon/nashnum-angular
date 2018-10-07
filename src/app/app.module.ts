@@ -14,6 +14,8 @@ import { QuizComponent } from './quiz/quiz.component';
 import { QuestionComponent } from './quiz/question/question.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InfoComponent } from './info/info.component';
+import {ModeService} from './shared/mode.service';
+import { ScoreComponent } from './quiz/score/score.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { InfoComponent } from './info/info.component';
     MatDivider,
     MatBadge,
     InfoComponent,
+    ScoreComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,9 @@ import { InfoComponent } from './info/info.component';
     MatRippleModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    ModeService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
