@@ -6,21 +6,21 @@ mat-chip {
 
 /deep/ mat-chip-list.mat-chip-list-stacked.mat-chip-list div.mat-chip-list-wrapper {
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 30px;
   align-items: center !important; }
 
-.mat-display-4 {
+.mat-display-3 {
   border-radius: 50%;
-  width: 160px;
-  height: 160px;
+  width: 110px;
+  height: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px auto 40px;
+  margin: 10px auto 30px;
   letter-spacing: 0; }
 
 .key-display {
-  margin-top: 0px;
+  margin-top: 30px;
   text-align: center; }
   .key-display mat-chip {
     width: 120px;
@@ -38,7 +38,7 @@ mat-chip {
 
 .answer-icon {
   color: white;
-  font-size: 112px;
+  font-size: 56px;
   display: flex;
   align-items: center;
   justify-content: center; }

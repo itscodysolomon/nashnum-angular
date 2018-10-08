@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import { KEYS } from '../../shared/default-keys';
 import { trigger,style,transition,animate,keyframes } from '@angular/animations';
 
@@ -44,7 +44,7 @@ import { trigger,style,transition,animate,keyframes } from '@angular/animations'
           ))])
   ]
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent implements OnInit, OnDestroy {
   @Output() answer = new EventEmitter<boolean>();
   @Output() newQuestion = new EventEmitter<boolean>();
 
@@ -56,12 +56,14 @@ export class QuestionComponent implements OnInit {
   isAnswerCorrect = false;
   isIndicatingAnswer = false;
   areChoicesDisabled = false;
+  timer = 3000;
 
   constructor() { }
 
   ngOnInit() {
     this.setAnswerChoices();
     this.setCorrectAnswer();
+    this.setTimer();
   }
 
   setQuestionKey() {
@@ -96,6 +98,7 @@ export class QuestionComponent implements OnInit {
   }
 
   checkAnswer(choice) {
+    this.clearTimer();
     this.indicateAnswer(this.questionKey.indexOf(choice) + 1 === this.answerNumber);
   }
 
@@ -113,6 +116,27 @@ export class QuestionComponent implements OnInit {
   nextQuestion(answer) {
       this.answer.emit(answer);
       this.newQuestion.emit();
+  }
+
+  setTimer() {
+      window['timerInterval'] = setInterval(() => {
+          if(this.timer > 0) {
+              this.timer = this.timer - 30;
+          } else {
+              this.clearTimer();
+              setTimeout(() => {
+                  this.checkAnswer(false);
+              }, 190);
+          }
+      }, 30);
+  }
+
+  clearTimer() {
+      window.clearInterval(window['timerInterval']);
+  }
+
+  ngOnDestroy() {
+    this.clearTimer();
   }
 
 }

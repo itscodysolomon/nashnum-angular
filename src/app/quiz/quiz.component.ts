@@ -58,4 +58,8 @@ export class QuizComponent implements OnInit {
     return Math.floor((this.answers.reduce(reducer) / this.questionMax) * 100);
   }
 
+  questionTimer() {
+
+  }
+
 }

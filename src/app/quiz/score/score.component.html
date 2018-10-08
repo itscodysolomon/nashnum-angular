@@ -1,1 +1,3 @@
-<p>{{quizScore}}%</p>
+<img *ngIf="quizScore < 70" mat-card-image [src]="getGif('bad')">
+<img *ngIf="quizScore === 70" mat-card-image [src]="getGif('okay')">
+<img *ngIf="quizScore > 70" mat-card-image [src]="getGif('good')">
