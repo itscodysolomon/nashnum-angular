@@ -1,3 +1,32 @@
+p {
+  padding: 0 15px 0 15px; }
 
+table {
+  width: 100%;
+  padding: 10px; }
+
+tr {
+  display: flex;
+  border-left: solid 1px #dcdcdc;
+  border-right: solid 1px #dcdcdc;
+  padding: 10px;
+  justify-content: space-evenly; }
+  tr:first-child {
+    border-top: solid 1px #dcdcdc;
+    border-bottom: solid 1px #dcdcdc; }
+  dcdcdc
+  tr:last-child {
+    border-bottom: solid 1px #dcdcdc; }
+  tr:nth-child(even) {
+    background: #eaeaea; }
+  tr th, tr td {
+    width: 40px;
+    text-align: left; }
+
+.info {
+  margin-top: 20px; }
+
+mat-toolbar-row {
+  justify-content: space-between; }
 
 /*# sourceMappingURL=info.component.css.map */

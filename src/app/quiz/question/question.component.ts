@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import { KEYS } from '../../shared/default-keys';
 import { trigger,style,transition,animate,keyframes } from '@angular/animations';
+import {ModeService} from "../../shared/mode.service";
 
 @Component({
   selector: 'app-question',
@@ -53,17 +54,21 @@ export class QuestionComponent implements OnInit, OnDestroy {
   questionChoices = [];
   correctAnswer: string;
   answerNumber: number;
+  isAnswerChosen = false;
   isAnswerCorrect = false;
   isIndicatingAnswer = false;
   areChoicesDisabled = false;
+  mode = this.modeService.mode;
   timer = 3000;
 
-  constructor() { }
+  constructor(private modeService: ModeService) { }
 
   ngOnInit() {
     this.setAnswerChoices();
     this.setCorrectAnswer();
-    this.setTimer();
+    if (this.mode === 'quiz') {
+        this.setTimer();
+    }
   }
 
   setQuestionKey() {
@@ -98,6 +103,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
   }
 
   checkAnswer(choice) {
+    this.isAnswerChosen = true;
     this.clearTimer();
     this.indicateAnswer(this.questionKey.indexOf(choice) + 1 === this.answerNumber);
   }
@@ -125,11 +131,13 @@ export class QuestionComponent implements OnInit, OnDestroy {
           } else {
               this.clearTimer();
               setTimeout(() => {
-                  this.checkAnswer(false);
-              }, 190);
+                  if (!this.isAnswerChosen) {
+                      this.checkAnswer(false);
+                  }
+              }, 300);
           }
       }, 30);
-  }
+}
 
   clearTimer() {
       window.clearInterval(window['timerInterval']);

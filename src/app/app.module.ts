@@ -5,7 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {
   MatButton, MatCard, MatToolbar, MatRippleModule, MatIcon, MatToolbarRow, MatChipList, MatChip, MatCardHeader,
-  MatCardTitle, MatCardSubtitle, MatCardContent, MatDivider, MatBadge, MatProgressBar,
+  MatCardTitle, MatCardSubtitle, MatCardContent, MatDivider, MatBadge, MatProgressBar, MatTable, MatHeaderRowDef,
+  MatHeaderRow, MatRow, MatRowDef,
 } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { ModePickComponent } from './mode-pick/mode-pick.component';
@@ -41,6 +42,11 @@ import { ScoreComponent } from './quiz/score/score.component';
     InfoComponent,
     ScoreComponent,
     MatProgressBar,
+    MatTable,
+    MatHeaderRowDef,
+    MatHeaderRow,
+    MatRow,
+    MatRowDef,
   ],
   imports: [
     BrowserModule,

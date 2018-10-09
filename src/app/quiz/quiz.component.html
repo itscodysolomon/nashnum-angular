@@ -3,6 +3,7 @@
         <mat-toolbar-row>
             <span *ngIf="mode === 'quiz' && isQuestion && showQuestionCount">{{answers.length + 1}} / {{questionMax}}</span>
             <span *ngIf="mode === 'quiz' && showScore" style="margin-left: 20px">{{quizScore}}%</span>
+            <span *ngIf="mode === 'practice'">Practice</span>
             <span class="toolbar-spacer"></span>
             <button *ngIf="showScore" mat-button color="primary" routerLink="/countdown">Again</button>
             <button mat-button routerLink="/mode">Back</button>
