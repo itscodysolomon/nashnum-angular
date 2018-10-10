@@ -16,6 +16,7 @@ export class QuizComponent implements OnInit {
   showQuestionCount = true;
   showScore = false;
   quizScore: number;
+  overallTime = 0;
 
   constructor(
       private modeService: ModeService,
@@ -58,8 +59,8 @@ export class QuizComponent implements OnInit {
     return Math.floor((this.answers.reduce(reducer) / this.questionMax) * 100);
   }
 
-  questionTimer() {
-
+  displayOverallTime() {
+      return (this.overallTime / 1000) + ' seconds';
   }
 
 }

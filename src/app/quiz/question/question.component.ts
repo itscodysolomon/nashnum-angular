@@ -48,6 +48,7 @@ import {ModeService} from "../../shared/mode.service";
 export class QuestionComponent implements OnInit, OnDestroy {
   @Output() answer = new EventEmitter<boolean>();
   @Output() newQuestion = new EventEmitter<boolean>();
+  @Output() answerTime = new EventEmitter<number>();
 
   defaultKeys = KEYS;
   questionKey = this.setQuestionKey();
@@ -121,6 +122,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
 
   nextQuestion(answer) {
       this.answer.emit(answer);
+      this.answerTime.emit(3000 - this.timer);
       this.newQuestion.emit();
   }
 
