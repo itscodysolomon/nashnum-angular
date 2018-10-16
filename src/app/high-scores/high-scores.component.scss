@@ -1,0 +1,27 @@
+ng2-smart-table{
+  margin: 20px auto;
+  display: block;
+
+  @media(min-width: 600px) {
+    max-width: 50% !important;
+    display: block;
+    margin: 20px auto;
+  }
+
+  /deep/ th.ng2-smart-th{
+    color: #3f51b5;
+    font-weight: 500;
+  }
+}
+
+/deep/ table-cell-view-mode{
+  text-align: center;
+}
+
+.toolbar-spacer {
+  flex: 11 auto;
+}
+
+mat-toolbar {
+  padding: 0;
+}

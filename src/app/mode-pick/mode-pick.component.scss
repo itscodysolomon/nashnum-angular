@@ -3,6 +3,10 @@ mat-chip {
   font-size: 130%;
   height: 40px;
   margin-bottom: 15px !important;
+
+  @media(min-width: 600px) {
+      width: 35% !important;
+  }
 }
 
 /deep/ mat-chip-list.mat-chip-list-stacked.mat-chip-list div.mat-chip-list-wrapper {

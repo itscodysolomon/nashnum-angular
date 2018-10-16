@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,eAAe;EACb,MAAM,EAAE,SAAS;EACjB,OAAO,EAAE,KAAK;EAEd,yBAAyB;IAJ3B,eAAe;MAKX,SAAS,EAAE,cAAc;MACzB,OAAO,EAAE,KAAK;MACd,MAAM,EAAE,SAAS;EAGnB,sCAAsB;IACpB,KAAK,EAAE,OAAO;IACd,WAAW,EAAE,GAAG;;AAIpB,2BAA2B;EACzB,UAAU,EAAE,MAAM;;AAGpB,eAAgB;EACd,IAAI,EAAE,OAAO;;AAGf,WAAY;EACV,OAAO,EAAE,CAAC",
+"sources": ["high-scores.component.scss"],
+"names": [],
+"file": "high-scores.component.css"
+}

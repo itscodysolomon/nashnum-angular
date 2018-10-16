@@ -17,6 +17,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { InfoComponent } from './info/info.component';
 import {ModeService} from './shared/mode.service';
 import { ScoreComponent } from './quiz/score/score.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import {environment} from '../environments/environment';
+import { HighScoresComponent } from './high-scores/high-scores.component';
+import {Ng2SmartTableModule} from 'ng2-smart-table';
+import {Ng2CompleterModule} from 'ng2-completer';
 
 @NgModule({
   declarations: [
@@ -47,12 +53,17 @@ import { ScoreComponent } from './quiz/score/score.component';
     MatHeaderRow,
     MatRow,
     MatRowDef,
+    HighScoresComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatRippleModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    Ng2SmartTableModule,
+    Ng2CompleterModule,
   ],
   providers: [
     ModeService,

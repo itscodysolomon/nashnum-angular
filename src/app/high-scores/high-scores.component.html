@@ -1,0 +1,9 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <span>High Scores</span>
+        <span class="toolbar-spacer"></span>
+        <button mat-button routerLink="/mode">Back</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<ng2-smart-table *ngIf="!loading" [settings]="settings" [source]="data"></ng2-smart-table>

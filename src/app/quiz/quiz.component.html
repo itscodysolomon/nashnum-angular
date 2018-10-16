@@ -15,5 +15,5 @@
           (answerTime)="overallTime = overallTime + $event"
           (answer)="pushAnswer($event)">
     </app-question>
-    <app-score *ngIf="showScore" [quizScore]="quizScore"></app-score>
+    <app-score *ngIf="showScore" [quizScore]="quizScore" [quizTime]="overallTime"></app-score>
 </ng-container>
