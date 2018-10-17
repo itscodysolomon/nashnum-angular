@@ -30,7 +30,7 @@ export class ScoreComponent implements OnInit {
         this.getGif(this.quizScore);
       }
     }
-    this.isHighScore();
+    this.getLastHighScoreTime();
   }
 
   getGif(score) {
@@ -61,19 +61,15 @@ export class ScoreComponent implements OnInit {
   }
 
   isHighScore() {
-    // if (this.getLastHighScoreTime()) {
-    //   console.log('high score');
-    // }
+    if (this.quizScore == 100) {
+      console.log('high score');
+    }
   }
 
   getLastHighScoreTime() {
-    console.log('hey');
     this.times.subscribe(res => {
       if (this.quizTime > (res[res.length - 1]['time'])) {
-        console.log('true');
-        console.log(this.quizTime);
-        console.log(res[res.length - 1]['time']);
-        return true;
+        this.isHighScore();
       }
     });
   }
