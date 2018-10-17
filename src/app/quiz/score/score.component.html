@@ -1,3 +1,3 @@
-<img *ngIf="quizScore < 70" mat-card-image [src]="getGif('bad')">
-<img *ngIf="quizScore === 70" mat-card-image [src]="getGif('okay')">
-<img *ngIf="quizScore > 70" mat-card-image [src]="getGif('good')">
+<img *ngIf="(quizScore < 70) && badGif" mat-card-image [src]="badGif">
+<img *ngIf="(quizScore === 70) && okayGif" mat-card-image [src]="okayGif">
+<img *ngIf="(quizScore > 70) && goodGif" mat-card-image [src]="goodGif">

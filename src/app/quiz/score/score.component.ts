@@ -16,8 +16,13 @@ export class ScoreComponent implements OnInit {
 
   badGifsCount = 13;
   okayGifsCount = 8;
-  goofGifsCount = 14;
-  gifChosen = false;
+  goodGifsCount = 14;
+  goodGifs = [];
+  okayGifs = [];
+  badGifs = [];
+  badGif: string;
+  okayGif: string;
+  goodGif: string;
 
   constructor(db: AngularFirestore) {
     this.timesCollection = db.collection('times', ref => ref.orderBy('time', 'asc').limit(30));
@@ -25,26 +30,27 @@ export class ScoreComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.quizScore) {
-      if (this.gifChosen) {
-        this.getGif(this.quizScore);
-      }
-    }
+    this.fillGifArrays();
+    this.setGifs();
     this.getLastHighScoreTime();
   }
 
-  getGif(score) {
-    this.gifChosen = true;
-    switch (score) {
-      case 'bad':
-        return '/assets/gifs/bad/bad-' + this.getRandomNum(score) + '.gif';
-      case 'okay':
-        return '/assets/gifs/okay/okay-' + this.getRandomNum(score) + '.gif';
-      case 'good':
-        return '/assets/gifs/good/good-' + this.getRandomNum(score) + '.gif';
-      default:
-        return '/assets/gifs/okay/okay-' + this.getRandomNum('okay') + '.gif';
+  fillGifArrays() {
+    for (let i = 0; i < this.goodGifsCount; i++) {
+      this.goodGifs.push('/assets/gifs/good/good-' + (i + 1) + '.gif');
     }
+    for (let i = 0; i < this.okayGifsCount; i++) {
+      this.okayGifs.push('/assets/gifs/okay/okay-' + (i + 1) + '.gif');
+    }
+    for (let i = 0; i < this.badGifsCount; i++) {
+      this.badGifs.push('/assets/gifs/bad/bad-' + (i + 1) + '.gif');
+    }
+  }
+
+  setGifs() {
+        this.badGif = this.badGifs[this.getRandomNum('bad')];
+        this.okayGif = this.okayGifs[this.getRandomNum('okay')];
+        this.goodGif = this.goodGifs[this.getRandomNum('good')];
   }
 
   getRandomNum(score) {
@@ -54,7 +60,7 @@ export class ScoreComponent implements OnInit {
       case 'okay':
         return Math.ceil(Math.random() * this.okayGifsCount);
       case 'good':
-        return Math.ceil(Math.random() * this.goofGifsCount);
+        return Math.ceil(Math.random() * this.goodGifsCount);
       default:
         return Math.ceil(Math.random() * this.okayGifsCount);
     }
