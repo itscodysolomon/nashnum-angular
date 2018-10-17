@@ -1,0 +1,12 @@
+img {
+  width: 100%;
+  margin: 0 auto; }
+  @media (min-width: 600px) {
+    img {
+      width: auto;
+      margin: 50px auto;
+      display: block;
+      max-height: 350px;
+      min-width: 350px; } }
+
+/*# sourceMappingURL=score.component.css.map */

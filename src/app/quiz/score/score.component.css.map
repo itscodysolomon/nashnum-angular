@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,GAAG;EACD,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,MAAM;EAEd,yBAAyB;IAJ3B,GAAG;MAKC,KAAK,EAAE,IAAI;MACX,MAAM,EAAE,SAAS;MACjB,OAAO,EAAE,KAAK;MACd,UAAU,EAAE,KAAK;MACjB,SAAS,EAAE,KAAK",
+"sources": ["score.component.scss"],
+"names": [],
+"file": "score.component.css"
+}
