@@ -27,6 +27,7 @@ export class ScoreComponent implements OnInit {
   goodGif: string;
 
   initials: string;
+  dialogOpened = false;
 
   constructor(db: AngularFirestore, public dialog: MatDialog) {
     this.timesCollection = db.collection('times', ref => ref.orderBy('time', 'asc').limit(30));
@@ -71,7 +72,7 @@ export class ScoreComponent implements OnInit {
   }
 
   isHighScore() {
-    if (this.quizScore == 100) {
+    if (this.quizScore == 100 && !this.dialogOpened) {
       this.openDialog();
     }
   }
@@ -85,16 +86,14 @@ export class ScoreComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(HighScoreDialogComponent, {
+    this.dialogOpened = true;
+    this.dialog.open(HighScoreDialogComponent, {
       width: '250px',
       disableClose: true,
-      data: {initials: this.initials}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.initials = result;
-      console.log(this.initials);
+      data: {
+        quizTime: this.quizTime,
+        date: new Date(),
+      }
     });
   }
 
