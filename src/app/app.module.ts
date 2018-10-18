@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {
   MatButton, MatCard, MatToolbar, MatRippleModule, MatIcon, MatToolbarRow, MatChipList, MatChip, MatCardHeader,
   MatCardTitle, MatCardSubtitle, MatCardContent, MatDivider, MatBadge, MatProgressBar, MatTable, MatHeaderRowDef,
-  MatHeaderRow, MatRow, MatRowDef,
+  MatHeaderRow, MatRow, MatRowDef, MatDialogModule, MatFormFieldModule, MatAutocompleteModule,
 } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { ModePickComponent } from './mode-pick/mode-pick.component';
@@ -23,6 +23,8 @@ import {environment} from '../environments/environment';
 import { HighScoresComponent } from './high-scores/high-scores.component';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {Ng2CompleterModule} from 'ng2-completer';
+import { HighScoreDialogComponent } from './quiz/high-score-dialog/high-score-dialog.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import {Ng2CompleterModule} from 'ng2-completer';
     MatRow,
     MatRowDef,
     HighScoresComponent,
+    HighScoreDialogComponent,
   ],
+  entryComponents: [HighScoreDialogComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -64,6 +68,11 @@ import {Ng2CompleterModule} from 'ng2-completer';
     AngularFirestoreModule,
     Ng2SmartTableModule,
     Ng2CompleterModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    FormsModule,
   ],
   providers: [
     ModeService,

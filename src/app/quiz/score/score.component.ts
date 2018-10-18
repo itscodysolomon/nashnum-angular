@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Observable } from 'rxjs/index';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import {MatDialog} from '@angular/material';
+import {HighScoreDialogComponent} from '../high-score-dialog/high-score-dialog.component';
 
 @Component({
   selector: 'app-score',
@@ -14,7 +16,7 @@ export class ScoreComponent implements OnInit {
   public times: Observable<any[]>;
   private timesCollection: AngularFirestoreCollection<any[]>;
 
-  badGifsCount = 13;
+  badGifsCount = 12;
   okayGifsCount = 8;
   goodGifsCount = 14;
   goodGifs = [];
@@ -24,7 +26,9 @@ export class ScoreComponent implements OnInit {
   okayGif: string;
   goodGif: string;
 
-  constructor(db: AngularFirestore) {
+  initials: string;
+
+  constructor(db: AngularFirestore, public dialog: MatDialog) {
     this.timesCollection = db.collection('times', ref => ref.orderBy('time', 'asc').limit(30));
     this.times = this.timesCollection.valueChanges();
   }
@@ -68,15 +72,29 @@ export class ScoreComponent implements OnInit {
 
   isHighScore() {
     if (this.quizScore == 100) {
-      console.log('high score');
+      this.openDialog();
     }
   }
 
   getLastHighScoreTime() {
     this.times.subscribe(res => {
-      if (this.quizTime > (res[res.length - 1]['time'])) {
+      if (this.quizTime < (res[res.length - 1]['time'])) {
         this.isHighScore();
       }
+    });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(HighScoreDialogComponent, {
+      width: '250px',
+      disableClose: true,
+      data: {initials: this.initials}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.initials = result;
+      console.log(this.initials);
     });
   }
 
