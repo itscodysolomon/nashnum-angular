@@ -1,0 +1,23 @@
+<div *ngIf="!hideForm">
+  <img src="../../../assets/gifs/high-score.gif" alt="high-score">
+  <form [formGroup]="highScoreForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="form-full-width">
+      <input matInput placeholder="Enter your initials" [formControl]="initialsFormControl"
+             [errorStateMatcher]="matcher">
+      <mat-error *ngIf="!initialsFormControl.hasError('minLength') || !initialsFormControl.hasError('maxLength')">
+        Must be three characters
+      </mat-error>
+      <mat-error *ngIf="initialsFormControl.hasError('required')">
+        Initials are <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="initialsFormControl.hasError('pattern')">
+        Letters only
+      </mat-error>
+    </mat-form-field>
+    <button mat-stroked-button color="primary" type="submit" class="sbmt-btn" [disabled]="!highScoreForm.valid">Submit</button>
+  </form>
+</div>
+<div *ngIf="hideForm" id="after-submission">
+  <button mat-stroked-button color="primary" (click)="viewHighScores()">View High Scores</button>
+  <button mat-stroked-button color="accent" (click)="onNoClick()">Nah</button>
+</div>
