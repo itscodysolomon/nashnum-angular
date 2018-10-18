@@ -49,6 +49,9 @@ export class HighScoresComponent implements OnInit {
       edit: false,
       delete: false,
     },
+    pager: {
+      display: false,
+    }
   };
 
   data = [];
@@ -63,7 +66,6 @@ export class HighScoresComponent implements OnInit {
   }
 
   getTableData() {
-    // const dateFormat = 'DD/MM/YYYY';
     this.times.subscribe( res => {
       res.map((item, index) => {
         item['rank'] = index + 1;

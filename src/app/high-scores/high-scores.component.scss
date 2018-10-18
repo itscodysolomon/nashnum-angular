@@ -1,3 +1,5 @@
+@import "../../themes/nashnumTheme.scss";
+
 ng2-smart-table{
   margin: 20px auto;
   display: block;
@@ -5,12 +7,12 @@ ng2-smart-table{
   @media(min-width: 600px) {
     max-width: 50% !important;
     display: block;
-    margin: 20px auto;
+    margin: 40px auto;
   }
 
   /deep/ th.ng2-smart-th{
-    color: #3f51b5;
-    font-weight: 500;
+    color: mat-color($nashnum-app-primary, 1);
+    //font-weight: 500;
   }
 }
 

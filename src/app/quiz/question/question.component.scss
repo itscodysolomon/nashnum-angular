@@ -1,3 +1,7 @@
+@import '~@angular/material/theming';
+$nashnum-app-primary: mat-color($mat-cyan, 500);
+$nashnum-app-accent:  mat-color($mat-pink, A200);
+
 mat-chip {
   max-width: 75%;
   font-size: 130%;
@@ -6,7 +10,7 @@ mat-chip {
 }
 
 /deep/ mat-chip-list.mat-chip-list-stacked.mat-chip-list div.mat-chip-list-wrapper {
-  margin: 30px auto;
+  margin: 50px auto;
   align-items: center !important;
 }
 
@@ -36,11 +40,11 @@ mat-chip {
 }
 
 .answer-wrong{
-  background: #ff4081;
+  background: $nashnum-app-accent;
 }
 
 .answer-correct{
-  background: #4caf50;
+  background: #00c853;
 }
 
 .answer-icon{

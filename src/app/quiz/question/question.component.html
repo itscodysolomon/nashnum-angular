@@ -13,7 +13,7 @@
 <h1 *ngIf="isIndicatingAnswer && !isAnswerCorrect" class="mat-display-3 answer-wrong" [@wrong]="!isAnswerCorrect">
   <mat-icon *ngIf="!isAnswerCorrect" class="toolbar-icon answer-icon">close</mat-icon>
 </h1>
-<mat-divider></mat-divider>
+<!--<mat-divider></mat-divider>-->
 <mat-chip-list class="mat-chip-list-stacked">
   <mat-chip
     *ngFor="let choice of questionChoices"

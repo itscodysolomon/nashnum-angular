@@ -7,6 +7,7 @@ import {
   MatButton, MatCard, MatToolbar, MatRippleModule, MatIcon, MatToolbarRow, MatChipList, MatChip, MatCardHeader,
   MatCardTitle, MatCardSubtitle, MatCardContent, MatDivider, MatBadge, MatProgressBar, MatTable, MatHeaderRowDef,
   MatHeaderRow, MatRow, MatRowDef, MatDialogModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule,
+  MatTooltipModule, MatSpinner,
 } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { ModePickComponent } from './mode-pick/mode-pick.component';
@@ -57,6 +58,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatRowDef,
     HighScoresComponent,
     HighScoreDialogComponent,
+    MatSpinner,
   ],
   entryComponents: [HighScoreDialogComponent],
   imports: [
@@ -74,6 +76,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatAutocompleteModule,
     FormsModule,
     MatInputModule,
+    MatTooltipModule,
   ],
   providers: [
     ModeService,

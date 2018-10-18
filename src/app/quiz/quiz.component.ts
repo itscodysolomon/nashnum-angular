@@ -12,7 +12,7 @@ export class QuizComponent implements OnInit {
   answers = [];
   isQuestion = true;
   mode: string;
-  questionMax = 2;
+  questionMax = 10;
   showQuestionCount = true;
   showScore = false;
   quizScore: number;

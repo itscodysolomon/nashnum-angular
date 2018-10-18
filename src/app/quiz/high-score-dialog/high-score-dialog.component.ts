@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 
 export interface DialogData {
@@ -70,7 +70,6 @@ export class HighScoreDialogComponent {
   }
 
   postSubmission() {
-    console.log(this.highScoreSubmission);
     this.highScoresCollection.add(this.highScoreSubmission);
   }
 

@@ -1,7 +1,9 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span class="mat-display-1" style="margin-bottom: 0" routerLink="/">nashnum</span>
+    <span class="clickable" routerLink="/"><img src="../../assets/nashnum-logo-outline.svg"></span>
+    <h1 class="clickable" routerLink="/">Nashnum</h1>
     <span class="toolbar-spacer"></span>
-    <mat-icon class="toolbar-icon" routerLink="/info">info</mat-icon>
+    <mat-icon matTooltip="Info" class="toolbar-icon clickable" routerLink="/info">info</mat-icon>
+    <mat-icon matTooltip="High Scores" class="toolbar-icon clickable" routerLink="/high-scores">star</mat-icon>
   </mat-toolbar-row>
 </mat-toolbar>

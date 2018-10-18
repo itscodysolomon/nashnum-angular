@@ -3,7 +3,7 @@
   <form [formGroup]="highScoreForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="form-full-width">
       <input matInput placeholder="Enter your initials" [formControl]="initialsFormControl"
-             [errorStateMatcher]="matcher">
+             [errorStateMatcher]="matcher" autocomplete="off">
       <mat-error *ngIf="!initialsFormControl.hasError('minLength') || !initialsFormControl.hasError('maxLength')">
         Must be three characters
       </mat-error>
