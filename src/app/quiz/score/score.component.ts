@@ -28,9 +28,10 @@ export class ScoreComponent implements OnInit {
 
   initials: string;
   dialogOpened = false;
+  highScoreLimit = 30;
 
   constructor(db: AngularFirestore, public dialog: MatDialog) {
-    this.timesCollection = db.collection('times', ref => ref.orderBy('time', 'asc').limit(30));
+    this.timesCollection = db.collection('times', ref => ref.orderBy('time', 'asc').limit(this.highScoreLimit));
     this.times = this.timesCollection.valueChanges();
   }
 
@@ -72,14 +73,16 @@ export class ScoreComponent implements OnInit {
   }
 
   isHighScore() {
+    console.log('hey2' + this.quizTime + this.quizScore);
     if (this.quizScore == 100 && !this.dialogOpened) {
       this.openDialog();
     }
   }
 
   getLastHighScoreTime() {
+    console.log('hey' + this.quizTime + this.quizScore);
     this.times.subscribe(res => {
-      if (this.quizTime < (res[res.length - 1]['time'])) {
+      if ( res.length < this.highScoreLimit || (this.quizTime < (res[res.length - 1]['time']))) {
         this.isHighScore();
       }
     });

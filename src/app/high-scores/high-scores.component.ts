@@ -14,6 +14,7 @@ export class HighScoresComponent implements OnInit {
   private timesCollection: AngularFirestoreCollection<any[]>;
 
   loading = true;
+  highScoreLimit = 30;
 
   settings = {
     hideSubHeader: true,
@@ -57,7 +58,7 @@ export class HighScoresComponent implements OnInit {
   data = [];
 
   constructor(db: AngularFirestore) {
-    this.timesCollection = db.collection('times', ref => ref.orderBy('time', 'asc').limit(30));
+    this.timesCollection = db.collection('times', ref => ref.orderBy('time', 'asc').limit(this.highScoreLimit));
     this.times = this.timesCollection.valueChanges();
   }
 
