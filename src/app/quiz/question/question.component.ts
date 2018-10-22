@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import { KEYS } from '../../shared/default-keys';
 import { trigger,style,transition,animate,keyframes } from '@angular/animations';
 import {ModeService} from "../../shared/mode.service";
@@ -70,6 +70,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
     if (this.mode === 'quiz') {
         this.setTimer();
     }
+    this.scrollButtonsToView();
   }
 
   setQuestionKey() {
@@ -147,6 +148,10 @@ export class QuestionComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.clearTimer();
+  }
+
+  scrollButtonsToView() {
+      window.scrollTo(0,document.body.scrollHeight);
   }
 
 }

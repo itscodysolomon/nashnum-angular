@@ -14,6 +14,11 @@ ng2-smart-table{
     color: mat-color($nashnum-app-primary, 1);
     //font-weight: 500;
   }
+
+  /deep/ th.ng2-smart-th{
+    border-bottom: solid 1px;
+    margin-bottom: 10px;
+  }
 }
 
 /deep/ table-cell-view-mode{

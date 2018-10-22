@@ -1,3 +1,7 @@
+@import '~@angular/material/theming';
+$nashnum-app-primary: mat-color($mat-cyan, 500);
+$nashnum-app-accent:  mat-color($mat-pink, A200);
+
 p{
   padding: 0 15px 0 15px;
 }
@@ -35,6 +39,41 @@ tr{
 
 .info{
   margin-top: 20px;
+  color: #666666;
+  a{
+    color: $nashnum-app-primary;
+    &:visited,
+    &:hover,
+    &:active,
+    &:link{
+      color: $nashnum-app-primary;
+      text-decoration: none;
+    }
+  }
+
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 40px;
+  @media(max-width: 500px){
+    width: 99%;
+    margin-top: 20px;
+  }
+
+  p span{
+    margin-left: 10px;
+  }
+}
+
+table{
+  width: 90%;
+  margin: 0 auto;
+  @media(max-width: 500px){
+    width: 99%;
+  }
+
+  th{
+    color: $nashnum-app-primary;
+  }
 }
 
 mat-toolbar-row{

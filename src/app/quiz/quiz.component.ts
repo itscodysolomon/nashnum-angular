@@ -60,7 +60,6 @@ export class QuizComponent implements OnInit {
   }
 
   displayOverallTime() {
-      return (this.overallTime / 1000) + ' seconds';
+      return (this.overallTime / 1000) + ' Sec';
   }
-
 }

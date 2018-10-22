@@ -3,6 +3,7 @@ mat-chip {
   font-size: 130%;
   height: 40px;
   margin-bottom: 15px !important;
+  cursor: pointer;
 
   @media(min-width: 600px) {
       width: 35% !important;
@@ -15,10 +16,11 @@ mat-chip {
   align-items: center !important;
 }
 
-h1,h4{
+h2{
   text-align: center;
 }
 
-h1{
+h2{
   margin-top: 40px;
+  color: #666666;
 }

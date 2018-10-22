@@ -1,5 +1,5 @@
 <mat-progress-bar *ngIf="mode === 'quiz'" mode="determinate" value="{{timer/30}}"></mat-progress-bar>
-<div class="key-display">
+<div class="key-display" >
   <mat-chip disabled>Key of {{questionKey[0]}}</mat-chip>
 </div>
 <h1 *ngIf="!isIndicatingAnswer" class="mat-display-3 background-primary" [@bounce]="!isIndicatingAnswer">
@@ -21,4 +21,3 @@
     [ngClass]="{'disable-choice': areChoicesDisabled}"
   >{{choice}}</mat-chip>
 </mat-chip-list>
-
